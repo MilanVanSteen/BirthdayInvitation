@@ -200,11 +200,19 @@ button:hover {
     text-align: center;
 }
 
+.rsvp-card p {
+    margin: 0;
+}
+
+.rsvp-card h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+}
+
 .rsvp-card input {
     width: 80%;
 
     padding: 0.8rem;
-    margin-top: 1rem;
 
     border-radius: 0.5rem;
     border: 1px solid #ccc;
@@ -212,10 +220,46 @@ button:hover {
 
 #failMessage {
     color: red;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 #successMessage {
     color: green;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+}
+
+
+
+.no-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+}
+
+.no-screen.show {
+    display: flex;
+}
+
+.no-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+
+    width: min(90vw, 400px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.no-card p {
+    margin: 0;
+    margin-top: 0.5rem;
 }

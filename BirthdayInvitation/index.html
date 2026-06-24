@@ -44,8 +44,8 @@
                 <div class="rsvp-section">
                     <h3>Ben je erbij?</h3>
 
-                    <button class="yes-btn" onclick="showRSVP()">Ik zal er zijn!</button>
-                    <button class="no-btn">Nuh uh</button>
+                    <button class="yes-btn" onclick="showRSVP()">Ik ben erbij!</button>
+                    <button class="no-btn" onclick="handleNo()">Nuh uh</button>
                 </div>
             </div>
         </div>
@@ -73,6 +73,20 @@
 
                 <p id="failMessage"></p>
                 <p id="successMessage"></p>
+            </div>
+        </div>
+
+        <!-- NO SCREEN -->
+        <div class="no-screen" id="noScreen">
+            <div class="no-card">
+                <h1>WAT?</h1>
+
+                <img src="gifs/hampter.gif" class="invite-gif">
+
+                <p>Oh oke..uhm...dat is oke..</p>
+                <p>Als je je bedenkt kun je altijd nog ja kiezen.</p>
+
+                <button onclick="closeNoScreen()">Terug</button>
             </div>
         </div>
 
