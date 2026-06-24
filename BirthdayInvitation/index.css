@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background: linear-gradient(135deg, #000000, #28282B);
+    font-family: Arial, sans-serif;
+
+    overflow-y: auto;
+}
+
+.scene {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 1200px;
+    padding: 2rem;
+}
+
+.envelope {
+    width: clamp(220px, 40vw, 320px);
+    aspect-ratio: 16 / 10;
+
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.5);
+    transition: 0.8s ease;
+}
+.envelope:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.envelope-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #D2042D;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.flap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FA0536;
+    border-radius: 10px;
+
+    clip-path: polygon(0 0, 50% 55%, 100% 0);
+
+    transform-origin: top;
+    transition: transform 0.6s ease;
+    z-index: 4;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg) translateY(-3px);
+}
+
+.flap-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FB325A;
+    border-radius: 10px;
+
+    clip-path: polygon(0 0, 50% 55%, 100% 0);
+    
+    z-index: 3;
+}
+
+.letter {
+    position: absolute;
+
+    width: clamp(280px, 80vw, 460px);
+
+    background: white;
+    border-radius: 1rem;
+
+    transform: translateY(3rem) scale(0.8);
+
+    pointer-events: none;
+    opacity: 0;
+
+    transition: 0.8s ease;
+    z-index: 1;
+}
+.letter.show {
+    transform: translateY(-1.5rem) scale(1.05);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.invitation-card {
+    transition: 0.8s ease;
+    position: relative;
+
+    z-index: 1;
+
+    padding: clamp(1rem, 4vw, 1rem);
+    text-align: center;
+}
+.invitation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.invite-gif {
+    width: 100%;
+    max-width: 18rem;
+
+    border-radius: 1rem;
+    margin-top: 1rem;
+}
+
+h2 {
+    margin: 0 0 1rem 0;
+    color: #555;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+}
+
+.intro {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+}
+
+.details {
+    margin: 1rem 0;
+}
+
+.details p {
+    margin: 0.3rem 0;
+}
+
+h3{
+    margin: 0;
+}
+
+button {
+    border: none;
+    padding: 0.8rem 1.5rem;
+    margin: 0.5rem;
+
+    border-radius: 0.8rem;
+    cursor: pointer;
+
+    font-size: 1rem;
+    transition: transform .2s;
+}
+button:hover {
+    transform: translateY(-3px);
+}
+
+.yes-btn {
+    background: #4caf50;
+    color: white;
+}
+
+.no-btn {
+    background: #f44336;
+    color: white;
+}
+
+
+
+.rsvp-screen {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.8);
+
+    z-index: 999;
+}
+
+.rsvp-screen.show {
+    display: flex;
+}
+
+.rsvp-card {
+    background: white;
+
+    padding: 2rem;
+    border-radius: 1rem;
+
+    width: min(90vw, 30rem);
+
+    text-align: center;
+}
+
+.rsvp-card input {
+    width: 80%;
+
+    padding: 0.8rem;
+    margin-top: 1rem;
+
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+}
+
+#failMessage {
+    color: red;
+    margin-top: 1rem;
+}
+
+#successMessage {
+    color: green;
+    margin-top: 1rem;
+}
