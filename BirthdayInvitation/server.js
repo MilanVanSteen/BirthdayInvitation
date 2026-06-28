@@ -1,13 +1,17 @@
 const express = require("express");
 const cors = require("cors");
 const { sql, getConnection } = require("./db");
+const path = require("path");
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, "public")));
+
 app.get("/", (req, res) => {
-    res.send("Backend is alive 🚀");
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.get("/attendees", async (req, res) => {
@@ -63,6 +67,8 @@ app.post("/rsvp/remove", async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log("Server running on http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
