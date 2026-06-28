@@ -105,7 +105,7 @@ function handleNo() {
 function submitNoRSVP() {
     let attendees = JSON.parse(localStorage.getItem("attendees")) || [];
 
-    // verwijder uit lijst
+    // Remove from list
     attendees = attendees.filter(
         a => a.visitorId !== visitorId
     );
