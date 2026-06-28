@@ -50,7 +50,7 @@ app.post("/rsvp", async (req, res) => {
     }
 });
 
-app.post("/rsvp/remove", async (req, res) => {
+app.post("/remove", async (req, res) => {
     const { visitorId } = req.body;
 
     try {
