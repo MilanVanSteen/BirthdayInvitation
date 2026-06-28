@@ -161,3 +161,12 @@ function showNoScreen() {
 function closeNoScreen() {
     document.getElementById("noScreen").classList.remove("show");
 }
+
+const nameInput = document.getElementById("nameInput");
+
+nameInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        submitRSVP();
+    }
+});
